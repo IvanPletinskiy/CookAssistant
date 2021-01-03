@@ -1,4 +1,4 @@
-package di
+package com.handen.cookassistant.di
 
 import kotlin.reflect.KClass
 
