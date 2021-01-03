@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Cook Assistant</string>
-    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="min">min</string>
+    <string name="dishes">Dishes</string>
 </resources>

@@ -1,5 +1,10 @@
 package com.handen.cookassistant.di
 
+import com.handen.cookassistant.data.repositories.DishesRepository
+import com.handen.cookassistant.usecases.GetAllDishesUseCase
+import com.handen.cookassistant.usecases.GetAllDishesUseCaseImpl
+import com.handen.cookassistant.usecases.ToggleDishFavoriteUseCase
+import com.handen.cookassistant.usecases.ToggleDishFavoriteUseCaseImpl
 import kotlin.reflect.KClass
 
 object ServiceLocator {
@@ -7,7 +12,15 @@ object ServiceLocator {
     internal val dependencies: MutableMap<KClass<out Any>, Lazy<Any>> = mutableMapOf()
 
     init {
-
+        dependencies[DishesRepository::class] = lazy {
+            DishesRepository()
+        }
+        dependencies[GetAllDishesUseCase::class] = lazy {
+            GetAllDishesUseCaseImpl(resolve())
+        }
+        dependencies[ToggleDishFavoriteUseCase::class] = lazy {
+            ToggleDishFavoriteUseCaseImpl(resolve())
+        }
     }
 
     inline fun <reified T : Any> resolve(): T {
