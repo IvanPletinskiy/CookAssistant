@@ -3,7 +3,7 @@ package com.handen.cookassistant.presentation.util
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.handen.cookassistant.presentation.ui.dashboard.DishesListFragment
+import com.handen.cookassistant.presentation.ui.dishesList.DishesListFragment
 import com.handen.cookassistant.presentation.ui.home.HomeFragment
 import com.handen.cookassistant.presentation.ui.notifications.NotificationsFragment
 
