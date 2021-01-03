@@ -1,4 +1,4 @@
-package com.handen.cookassistant.ui.home
+package com.handen.cookassistant.presentation.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

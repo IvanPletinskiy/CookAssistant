@@ -1,4 +1,4 @@
-package com.handen.cookassistant.ui.notifications
+package com.handen.cookassistant.presentation.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

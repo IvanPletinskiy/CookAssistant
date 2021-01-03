@@ -1,4 +1,4 @@
-package com.handen.cookassistant.ui.home
+package com.handen.cookassistant.presentation.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
