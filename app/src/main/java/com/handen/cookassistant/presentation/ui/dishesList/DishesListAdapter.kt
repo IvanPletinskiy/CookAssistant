@@ -14,6 +14,7 @@ import com.handen.cookassistant.presentation.ext.viewId
 typealias OnFavoriteButtonClickListener = (dish: Dish) -> Unit
 
 class DishesListAdapter: RecyclerView.Adapter<DishesListAdapter.DishHolder>() {
+    private var localizedMinString: String? = null
     private var items = listOf<Dish>()
     lateinit var onFavoriteButtonClick: OnFavoriteButtonClickListener
 
@@ -52,7 +53,9 @@ class DishesListAdapter: RecyclerView.Adapter<DishesListAdapter.DishHolder>() {
     }
 
     fun formatDescription(context: Context, dish: Dish): String {
-        //TODO
-        return "${dish.duration / 60} мин, ${dish.stepsCount} шагов"
+        if(localizedMinString == null) {
+            localizedMinString = context.getString(R.string.min)
+        }
+        return "${dish.duration / 60} $localizedMinString, ${dish.stepsCount} шагов"
     }
 }
