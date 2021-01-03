@@ -11,8 +11,11 @@ import com.handen.cookassistant.R
 import com.handen.cookassistant.data.models.Dish
 import com.handen.cookassistant.presentation.ext.viewId
 
+typealias OnFavoriteButtonClickListener = (dish: Dish) -> Unit
+
 class DishesListAdapter: RecyclerView.Adapter<DishesListAdapter.DishHolder>() {
-    private var items = listOf<Dish>(Dish("123", 600, 2, false))
+    private var items = listOf<Dish>()
+    lateinit var onFavoriteButtonClick: OnFavoriteButtonClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_dish, parent, false)
@@ -31,6 +34,9 @@ class DishesListAdapter: RecyclerView.Adapter<DishesListAdapter.DishHolder>() {
             holder.favoriteButton.setBackgroundResource(R.drawable.ic_star_filled)
         } else {
             holder.favoriteButton.setBackgroundResource(R.drawable.ic_star_outline)
+        }
+        holder.favoriteButton.setOnClickListener {
+            onFavoriteButtonClick.invoke(items[position])
         }
     }
 

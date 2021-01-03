@@ -6,10 +6,16 @@ import com.handen.cookassistant.data.models.Dish
 
 class DishesRepository {
     private val dishesList = listOf(
-        Dish("Сосиски", 15 * 60, 2, false),
-        Dish("Пельмени", 25 * 60, 3, true),
-        Dish("Рис", 20 * 60, 2, false)
+        Dish(0, "Сосиски", 15 * 60, 2, false),
+        Dish(1, "Пельмени", 25 * 60, 3, true),
+        Dish(2, "Рис", 20 * 60, 2, false)
     )
+
+    fun toggleDishFavorite(dish: Dish) {
+        val listDish = dishesList.first { it.id == dish.id }
+        listDish.isFavorite = !listDish.isFavorite
+        _dishes.value = _dishes.value
+    }
 
     private val _dishes = MutableLiveData<List<Dish>>(dishesList)
     val dishes: LiveData<List<Dish>>

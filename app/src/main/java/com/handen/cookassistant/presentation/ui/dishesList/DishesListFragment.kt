@@ -25,5 +25,7 @@ class DishesListFragment : Fragment(R.layout.fragment_dishes_list) {
         dishesListViewModel.dishes.observe(viewLifecycleOwner) {
             adapter.setItems(it)
         }
+
+        adapter.onFavoriteButtonClick = dishesListViewModel::toggleDishFavorite
     }
 }

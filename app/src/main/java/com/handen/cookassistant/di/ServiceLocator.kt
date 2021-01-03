@@ -3,6 +3,8 @@ package com.handen.cookassistant.di
 import com.handen.cookassistant.data.repositories.DishesRepository
 import com.handen.cookassistant.usecases.GetAllDishesUseCase
 import com.handen.cookassistant.usecases.GetAllDishesUseCaseImpl
+import com.handen.cookassistant.usecases.ToggleDishFavoriteUseCase
+import com.handen.cookassistant.usecases.ToggleDishFavoriteUseCaseImpl
 import kotlin.reflect.KClass
 
 object ServiceLocator {
@@ -15,6 +17,9 @@ object ServiceLocator {
         }
         dependencies[GetAllDishesUseCase::class] = lazy {
             GetAllDishesUseCaseImpl(resolve())
+        }
+        dependencies[ToggleDishFavoriteUseCase::class] = lazy {
+            ToggleDishFavoriteUseCaseImpl(resolve())
         }
     }
 
